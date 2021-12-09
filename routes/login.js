@@ -27,7 +27,7 @@ router.post("/", urlencodedParser, function (req, res) {
       error = "Three failed logins";
     }
     if (error !== "") {
-      res.render("login", { activePage: "login", error: error });
+      res.render("login", { activePage: "login", error: error, title: 'Login | Newspaper', error: "" });
       return;
     }
     bcrypt.compare(req.body.password, row["password"], function (err, hashRes) {
@@ -43,7 +43,7 @@ router.post("/", urlencodedParser, function (req, res) {
           }
         });
 
-        res.render("login", { activePage: "login", error: error });
+        res.render("login", { activePage: "login", error: error , title: 'Login | Newspaper', error: "" });
         return;
       }
       //req.session.userId = row["id"];
