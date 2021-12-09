@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <!-- <link rel="stylesheet" href="/stylesheets/style.css" /> -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="stylesheets/style.css" />
+    <link rel="shortcut icon" href="images/title-icon.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <script language="javascript" src="js/bootstrap.min.js"></script>
+    <div class="container">
+      <%- include("elements/navbar.ejs") %>
+      <div class="d-flex justify-content-center">
+        <h1 class="upper_title" href="#">Newspaper</h1>
+      </div>
+      <hr />
+      <ul class="nav justify-content-center">
+        <li class="nav-item">
+          <a class="nav-link active" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/news">News</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/politics">Politics</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/sport">Sport</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/culture">Culture</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/covid">Covid-19</a>
+        </li>
+      </ul>
+      <hr />
+
+      <div class="pt-4">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+          <div class="col">
+            <div class="card h-100">
+              <img
+                src="images/_122017311_072023140-1.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">
+                  This is a wider card with supporting text below as a natural
+                  lead-in to additional content. This content is a little bit
+                  longer.
+                </p>
+                <button
+                  type="button"
+                  class="btn btn-outline-primary"
+                  href="/read"
+                >
+                  Read
+                </button>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">Last updated 3 mins ago</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

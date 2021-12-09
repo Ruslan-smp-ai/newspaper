@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <!-- <link rel="stylesheet" href="/stylesheets/style.css" /> -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="stylesheets/style.css" />
+    <link rel="shortcut icon" href="images/title-icon.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+
+    <div class="container">
+      <%- include("elements/navbar.ejs") %>
+      <div class="d-flex justify-content-center">
+        <h1 class="upper_title" href="#">Newspaper</h1>
+      </div>
+      <hr />
+      <ul class="nav justify-content-center">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/news">News</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/politics">Politics</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/sport">Sport</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/culture">Culture</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/covid">Covid-19</a>
+        </li>
+      </ul>
+      <hr />
+
+      <form class="form-auth" method="post" action="/register">
+        <div class="form-group pt-3">
+            <input
+              type="text"
+              class="form-control form-control-underlined"
+              id="name"
+              placeholder="Name"
+            />
+          </div>
+        <div class="form-group pt-3">
+          <input
+            type="email"
+            name="email"
+            class="form-control form-control-underlined"
+            id="email"
+            aria-describedby="emailHelp"
+            placeholder="Email"
+          />
+          <small id="emailHelp" class="form-text text-muted"
+            >We'll never share your email with anyone else.</small
+          >
+        </div>
+        <div class="form-group pt-3">
+          <input
+            type="password"
+            name="password"
+            class="form-control form-control-underlined"
+            id="password"
+            placeholder="Password"
+          />
+        </div>
+        <div class="form-group pt-3">
+          <input
+            type="password"
+            name="confirmPassword"
+            class="form-control form-control-underlined"
+            id="confirmPassword"
+            placeholder="Confirm password"
+          />
+        </div>
+        <div class="registrationFormAlert" id="divCheckPasswordMatch"></div>
+        <div class="form-group form-check pt-3">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+          <label class="form-check-label" for="exampleCheck1"
+            >Consent to the processing of personal data</label
+          >
+        </div>
+        <button type="submit" class="btn btn-dark">Submit</button>
+      </form>
+    </div>
+
+    <!--  JavaScript  -->
+    <script language="javascript" src="js/bootstrap.min.js"></script>
+    <script src="/jquery/jquery.min.js"></script>
+    <script src="javascripts/validate_password.js"></script>
+  </body>
+</html>

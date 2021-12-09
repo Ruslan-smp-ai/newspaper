@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif&display=swap');
+
+body {
+  /*padding: 50px;*/
+  /*font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;*/
+  /*font: 14px "PT Serif", serif, Helvetica, Arial, sans-serif;*/
+  font-family: 'PT Serif', serif, bold;
+  background-image: url(../images/background.png);
+  background-repeat:repeat;
+}
+
+.container {
+  background-color: white;
+  box-shadow:  10px 10px 10px grey;
+}
+
+a {
+  color: #00B7FF;
+}
+
+h5 {
+  font-weight: 700;
+}
+
+.card {
+  /*box-shadow:  0px 0px 5px black;*/
+  transition: .2s ease-in-out;
+  border-radius: 5px;
+}
+
+.card:hover {
+  box-shadow:  0px 0px 20px grey;
+}
+
+hr { 
+  display: block;
+  margin-top: -0.1em;
+  margin-bottom: -0.1em;
+  margin-left: 1.5em;
+  margin-right: 1.5em;
+}
+
+.upper_title {
+  font-size: 55px;
+}
+
+.form-control-underlined:focus {
+  box-shadow: none;
+  border-color: black;
+}
+
+.form-control-underlined {
+  border-width: 0;
+  border-bottom-width: 1px;
+  border-radius: 0;
+  padding-left: 0;
+}
+
+.btn-underlined:focus {
+  box-shadow: none;
+  /*border-width: 0;
+  border-bottom-width: 0;
+  border-radius: 0;
+  padding-left: 0;*/
+}
+
+.form-auth {
+  padding: 30px;
+  padding-left: 25%;
+  padding-right: 25%;
+}
