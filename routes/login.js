@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+const bcrypt = require("bcrypt");
 
 const db = require("../database.js");
 
@@ -9,7 +10,7 @@ const urlencodedParser = express.urlencoded({extended: false});
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('login', { title: 'Login | Newspaper' });
+  res.render('login', { title: 'Login | Newspaper', error: "" });
 });
 
 router.post("/", urlencodedParser, function (req, res) {
@@ -33,7 +34,7 @@ router.post("/", urlencodedParser, function (req, res) {
       if (hashRes === false) {
         error = "Wrong email or password";
 
-        var sql = "UPDATE users SET failed_logins = failed_logins + 1";
+        var sql = "UPDATE user SET failed_logins = failed_logins + 1";
         db.run(sql, function (err, result) {
           if (err) {
             res.status(400);
@@ -45,8 +46,8 @@ router.post("/", urlencodedParser, function (req, res) {
         res.render("login", { activePage: "login", error: error });
         return;
       }
-      req.session.userId = row["id"];
-      req.session.loggedIn = true;
+      //req.session.userId = row["id"];
+      //req.session.loggedIn = true;
       res.redirect("/");
     });
   });
