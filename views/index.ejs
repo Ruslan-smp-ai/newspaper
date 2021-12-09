@@ -27,7 +27,7 @@
           <a class="nav-link" href="/politics">Politics</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/sport">Sport</a>
+          <a class="nav-link" href="/viewpost">Sport</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/culture">Culture</a>
@@ -40,7 +40,7 @@
 
       <div class="pt-4">
         <div class="row row-cols-1 row-cols-md-3 g-4">
-          <div class="col">
+          <div class="col"><a style="text-decoration: none; color: black;" href="viewpost">
             <div class="card h-100">
               <img
                 src="images/_122017311_072023140-1.jpg"
@@ -54,17 +54,12 @@
                   lead-in to additional content. This content is a little bit
                   longer.
                 </p>
-                <button
-                  type="button"
-                  class="btn btn-outline-primary"
-                  href="/read"
-                >
-                  Read
-                </button>
+    
               </div>
               <div class="card-footer">
                 <small class="text-muted">Last updated 3 mins ago</small>
               </div>
+            </a>
             </div>
           </div>
         </div>
@@ -72,9 +67,7 @@
       <div class="pb-4">
       </div>
     </div>   
-    <div class="pb-4">
       <div class="container"><%- include("elements/footer.ejs") %>
-      </div>
       </div>
   </body>
 </html>
