@@ -32,7 +32,7 @@ router.post("/", urlencodedParser, upload.single('articleImage'), function (req,
     };
 
   var data = [req.body.title, req.body.description, req.body.text, req.file.filename];
-  var sql = "INSERT INTO post (title, description, text, image, userId) VALUES (?,?,?,?,1)";
+  var sql = "INSERT INTO post (title, description, text, image, date, userId) VALUES (?,?,?,?, DATETIME('now','localtime'),1)";
   db.run(sql, data, function (err, result) {
     if (err) {
       res.status(400);
