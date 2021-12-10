@@ -19,11 +19,7 @@ router.post("/", urlencodedParser, function (req, res) {
       res.send("database error:" + err.message);
       return;
     }
-    res.render("index", {
-      activePage: "add_article",
-      formData: req.body,
-      title: "Newspaper",
-    });
+    res.redirect("../");
   });
 });
 module.exports = router;

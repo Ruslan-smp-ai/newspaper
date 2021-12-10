@@ -40,6 +40,7 @@
 
       <div class="pt-4">
         <div class="row row-cols-1 row-cols-md-3 g-4">
+          <% posts.forEach(function(post) { %>
           <div class="col"><a style="text-decoration: none; color: black;" href="viewpost">
             <div class="card h-100">
               <img
@@ -48,11 +49,10 @@
                 alt="..."
               />
               <div class="card-body">
-                <h5 class="card-title">Card title</h5>
+                <h5 class="card-title"><%- post["title"] %></h5>
                 <p class="card-text">
-                  This is a wider card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.</p><span class="badge bg-danger">Coronavirus</span>
+                  <%- post["text"] %>
+                </p><span class="badge bg-danger">Coronavirus</span>
               </div>
               <div class="card-footer">
                 <small class="text-muted">Last updated 3 mins ago</small>
@@ -60,6 +60,7 @@
             </a>
             </div>
           </div>
+          <% }) %>
         </div>
       </div>   
       <div class="pb-4">
