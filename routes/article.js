@@ -31,4 +31,17 @@ router.get("/:id/show", function (req, res, next) {
   });
 });
 
+router.get("/:id/delete", function (req, res) {
+  var sql = "DELETE FROM post WHERE id = ?";
+  var params = [req.params.id];
+  db.get(sql, params, (err, row) => {
+    if (err) {
+      res.status(400);
+      res.send("database error:" + err.message);
+      return;
+    }
+    res.redirect("/");
+  });
+});
+
 module.exports = router;
