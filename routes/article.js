@@ -18,10 +18,12 @@ router.get("/:id/show", function (req, res, next) {
     }
 
     article = converter.makeHtml(row["text"]);
+    const date = new Date(row["date"]).toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric", hour:"numeric", minute: "numeric", second: "numeric"}) ;
 
     res.render("show", {
       title: "Post | Newspaper",
       post: row,
+      date: date,
       article: article,
       activePage: "article",
       error: "",

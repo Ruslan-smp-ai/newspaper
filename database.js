@@ -16,6 +16,7 @@ var db = new sqlite3.Database(DBSOURCE, (err) => {
     description text,
     text text,
     image text,
+    date text,
     userId integer,
     FOREIGN KEY (userId) REFERENCES user(id)
     )`,
