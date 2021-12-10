@@ -5,7 +5,7 @@ const db = require("../database.js");
 const multer  = require('multer')
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, 'public/articleImages/')
+    cb(null, 'public/usersImages/')
   },
   filename: function (req, file, cb) {
     cb(null, file.fieldname + '-' + Date.now())
