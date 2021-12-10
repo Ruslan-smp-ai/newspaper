@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <!-- <link rel="stylesheet" href="/stylesheets/style.css" /> -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="shortcut icon" href="/images/title-icon.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <script language="javascript" src="/js/bootstrap.min.js"></script>
+    <div class="container">
+      <%- include("elements/navbar.ejs") %>
+      <div class="d-flex justify-content-center">
+        <h1 class="upper_title" href="#">Newspaper</h1>
+      </div>
+      <hr />
+      <ul class="nav justify-content-center">
+        <li class="nav-item">
+          <a class="nav-link active" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/news">News</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/politics">Politics</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/sport">Sport</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/culture">Culture</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/covid">Covid-19</a>
+        </li>
+      </ul>
+      <hr />
+
+      <div class="pt-4">
+        <div class="blog-post">
+            <h2 class="blog-post-title">Sample blog post</h2>
+            <p class="blog-post-meta">January 1, 2014 by Mark</p>
+            <%- article %>
+          </div><!-- /.blog-post -->
+        <hr style="width: 100%; margin-left: -0.2em; margin-right: -1.5em">
+        <div class="pt-4"></div>
+          <form class="d-flex">
+            <div class="pt-4"></div>
+            <input
+              class="form-control me-2 form-control-underlined"
+              type="text"
+              placeholder="Comment"
+              aria-label="Comment"
+            />
+            <button type="submit" class="btn btn-dark">Submit</button>
+      </div>   
+      <div class="pb-4">
+      </div>
+      <%- include("elements/form-footer.ejs") %>
+    </div>   
+  </body>
+</html>
