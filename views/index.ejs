@@ -42,7 +42,7 @@
       <div class="pt-4">
         <div class="row row-cols-1 row-cols-md-3 g-4">
           <% posts.forEach(function(post) { %>
-          <div class="col"><a style="text-decoration: none; color: rgb(0, 0, 0);" href="articles/<%- post['id'] %>/show">
+          <div class="col">
             <div class="card">
               <div class="card-header">
                 <div class="d-flex flex-row-reverse">
@@ -50,6 +50,7 @@
                   <button class="btn btn-light btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top"><i class="fa fa-edit"></i></button>
               </div>
             </div>
+            <a style="text-decoration: none; color: rgb(0, 0, 0);" href="articles/<%- post['id'] %>/show">
               <img 
                 src="usersImages/<%-  post["image"] %>"
                 class="card-img-top"
@@ -58,7 +59,7 @@
               <div class="card-body">
                 <h5 class="card-title"><%- post["title"] %></h5>
                 <p class="card-text">
-                  <%- post["text"] %>
+                  <%- post["description"] %>
                 </p><span class="badge bg-danger">Coronavirus</span>
               </a>
                 
@@ -67,15 +68,15 @@
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Are you sure?</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
                       <div class="modal-body">
-                        ...
+                        Remove article?
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <a href="/articles/<%- post['id'] %>/delete"><button type="button" class="btn btn-danger">Delete</button></a>
                       </div>
                     </div>
                   </div>

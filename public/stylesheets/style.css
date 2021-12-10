@@ -10,7 +10,7 @@ body {
 }
 .container {
   background-color: white;
-  box-shadow:  0px 10px 20px grey;
+  box-shadow:  0px 20px 20px grey;
 }
 
 a {
@@ -18,7 +18,7 @@ a {
 }
 
 h5 {
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .card {
@@ -79,6 +79,13 @@ hr {
   height: 200px;
 }
 .card-text {
+  overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+}
+.card-title {
   overflow: hidden;
 	text-overflow: ellipsis;
 	display: -webkit-box;
