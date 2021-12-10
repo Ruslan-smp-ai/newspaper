@@ -42,10 +42,15 @@
       <hr />
 
       <% if (error !== "") { %>
-        <div class="alert alert-danger" role="alert"><%- error %></div>
+      <div class="alert alert-danger" role="alert"><%- error %></div>
       <% } %>
 
-      <form class="form-article" method="post" action="/add_article" enctype="multipart/form-data">
+      <form
+        class="form-article"
+        method="post"
+        action="/add_article"
+        enctype="multipart/form-data"
+      >
         <div class="form-group pt-3">
           <input
             type="text"
@@ -55,7 +60,15 @@
             placeholder="Title"
           />
         </div>
-
+        <div class="form-group pt-3">
+          <input
+            type="text"
+            class="form-control form-control-underlined"
+            id="description"
+            name="description"
+            placeholder="Description"
+          />
+        </div>
         <div class="form-group pt-3">
           <textarea
             type="text"
@@ -71,7 +84,12 @@
         <label class="form-label" for="articleImage"
           >Upload article image</label
         >
-        <input type="file" class="form-control" id="articleImage" name="articleImage" />
+        <input
+          type="file"
+          class="form-control"
+          id="articleImage"
+          name="articleImage"
+        />
         <div class="pt-3"></div>
         <button type="submit" class="btn btn-dark">Submit</button>
       </form>

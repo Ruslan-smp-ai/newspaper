@@ -31,8 +31,8 @@ router.post("/", urlencodedParser, upload.single('articleImage'), function (req,
     return;
     };
 
-  var data = [req.body.title, req.body.text, req.file.filename];
-  var sql = "INSERT INTO post (title, text, image, userId) VALUES (?,?,?,1)";
+  var data = [req.body.title, req.body.description, req.body.text, req.file.filename];
+  var sql = "INSERT INTO post (title, description, text, image, userId) VALUES (?,?,?,?,1)";
   db.run(sql, data, function (err, result) {
     if (err) {
       res.status(400);
