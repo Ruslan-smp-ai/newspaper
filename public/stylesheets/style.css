@@ -10,7 +10,7 @@ body {
 }
 .container {
   background-color: white;
-  box-shadow:  0px 10px 20px grey;
+  box-shadow:  0px 20px 20px grey;
 }
 
 a {
@@ -18,7 +18,8 @@ a {
 }
 
 h5 {
-  font-weight: 700;
+  font-weight: 600;
+  text-align: justify;
 }
 
 .card {
@@ -84,4 +85,7 @@ hr {
 	display: -webkit-box;
 	-webkit-line-clamp: 1;
 	-webkit-box-orient: vertical;
+}
+p {
+  text-align: justify;
 }

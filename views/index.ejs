@@ -41,7 +41,7 @@
       <div class="pt-4">
         <div class="row row-cols-1 row-cols-md-3 g-4">
           <% posts.forEach(function(post) { %>
-          <div class="col"><a style="text-decoration: none; color: rgb(0, 0, 0);" href="articles/<%- post['id'] %>/show">
+          <div class="col">
             <div class="card">
               <div class="card-header">
                 <div class="d-flex flex-row-reverse">
@@ -49,6 +49,7 @@
               </button>
               </div>
             </div>
+            <a style="text-decoration: none; color: rgb(0, 0, 0);" href="articles/<%- post['id'] %>/show">
               <img 
                 src="usersImages/<%-  post["image"] %>"
                 class="card-img-top"
