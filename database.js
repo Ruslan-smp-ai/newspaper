@@ -13,6 +13,7 @@ var db = new sqlite3.Database(DBSOURCE, (err) => {
       `CREATE TABLE post (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     title text,
+    description text,
     text text,
     image text,
     userId integer,
