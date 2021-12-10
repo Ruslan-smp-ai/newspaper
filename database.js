@@ -14,6 +14,7 @@ var db = new sqlite3.Database(DBSOURCE, (err) => {
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     title text,
     text text,
+    image text,
     userId integer,
     FOREIGN KEY (userId) REFERENCES user(id)
     )`,
