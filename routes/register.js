@@ -22,11 +22,7 @@ router.post("/", urlencodedParser, function (req, res) {
         res.send("database error:" + err.message);
         return;
       }
-      res.render("index", {
-        activePage: "register",
-        formData: req.body,
-        title: "Login | Newspaper",
-      });
+      res.redirect("/");
     });
   });
 });
