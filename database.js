@@ -49,6 +49,7 @@ var db = new sqlite3.Database(DBSOURCE, (err) => {
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       name text,
       email text UNIQUE,
+      image text,
       password text,
       failed_logins INTEGER,
       CONSTRAINT email_unique UNIQUE (email)
