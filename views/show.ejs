@@ -40,7 +40,8 @@
 
       <div class="pt-4">
         <div class="blog-post">
-            <img src="/usersImages/<%- post["image"] %>" class="img-fluid" alt="Responsive image">
+            <img style="height: 400px; width: 100%; object-fit: cover;" src="/usersImages/<%- post["image"] %>" class="img-fluid" alt="Responsive image">
+            <div class ="pt-3"></div>
             <h2 class="blog-post-title"><%- post["title"] %></h2>
             <h5 class="blog-post-meta"><%- post["description"] %></h5>
             <p class="blog-post-meta"><%- date %></p>
