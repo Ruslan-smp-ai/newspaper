@@ -39,11 +39,7 @@ router.post("/", urlencodedParser, upload.single('avatarImage'), function (req, 
         res.send("database error:" + err.message);
         return;
       }
-<<<<<<< HEAD
-      res.redirect("../");
-=======
       res.redirect("/");
->>>>>>> b2634d356cc0fce3196e6be2a7e27857a3341b2a
     });
   });
 });
