@@ -11,11 +11,11 @@ const storage = multer.diskStorage({
     cb(null, file.fieldname + '-' + Date.now())
   }
 })
-
+var bodyParser = require('body-parser');
 router.use(express.json());
 router.use(express.urlencoded({ extended: false }));
 const urlencodedParser = express.urlencoded({ extended: false });
-
+router.use(bodyParser.urlencoded({ extended: true }));
 const upload = multer({ storage: storage })
 /* GET home page. */
 function checkAuth(req, res, next) {
