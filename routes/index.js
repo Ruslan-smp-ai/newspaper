@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 const db = require("../database.js");
-
+const sqlr = "SELECT post.id, post.title, post.text, post.description, post.image, category.name FROM post left JOIN category ON post.categoryId = category.id WHERE category.name = "
 /* GET home page. */
 /*router.get('/', function(req, res, next) {
   res.render('index', { title: 'Newspaper' });
@@ -21,7 +21,7 @@ router.get("/", function (req, res) {
 });
 
 router.get("/news", function (req, res) {
-  var sql = "SELECT post.id, post.title, post.text, post.description, post.image, category.name FROM post LEFT JOIN category ON post.categoryId = category.id WHERE categoryId = 1";
+  var sql = sqlr + "'News'";
   db.all(sql, [], (err, rows) => {
     if (err) {
       res.status(400);
@@ -33,7 +33,7 @@ router.get("/news", function (req, res) {
 });
 
 router.get("/politics", function (req, res) {
-  var sql = "SELECT post.id, post.title, post.text, post.description, post.image, category.name FROM post LEFT JOIN category ON post.categoryId = category.id WHERE categoryId = 2";
+  var sql = sqlr + "'Politics'";
   db.all(sql, [], (err, rows) => {
     if (err) {
       res.status(400);
@@ -45,7 +45,7 @@ router.get("/politics", function (req, res) {
 });
 
 router.get("/sport", function (req, res) {
-  var sql = "SELECT post.id, post.title, post.text, post.description, post.image, category.name FROM post LEFT JOIN category ON post.categoryId = category.id WHERE categoryId = 3";
+  var sql = sqlr + "'Sport'";
   db.all(sql, [], (err, rows) => {
     if (err) {
       res.status(400);
@@ -57,7 +57,7 @@ router.get("/sport", function (req, res) {
 });
 
 router.get("/culture", function (req, res) {
-  var sql = "SELECT post.id, post.title, post.text, post.description, post.image, category.name FROM post LEFT JOIN category ON post.categoryId = category.id WHERE categoryId = 4";
+  var sql = sqlr + "'Culture'";
   db.all(sql, [], (err, rows) => {
     if (err) {
       res.status(400);
@@ -69,7 +69,7 @@ router.get("/culture", function (req, res) {
 });
 
 router.get("/covid", function (req, res) {
-  var sql = "SELECT post.id, post.title, post.text, post.description, post.image, category.name FROM post LEFT JOIN category ON post.categoryId = category.id WHERE categoryId = 5";
+  var sql = sqlr + "'Covid'";
   db.all(sql, [], (err, rows) => {
     if (err) {
       res.status(400);
