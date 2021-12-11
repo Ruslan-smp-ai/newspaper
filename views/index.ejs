@@ -45,9 +45,11 @@
           <div class="col">
             <div class="card">
               <div class="card-header">
-                <div class="d-flex flex-row-reverse">
-                    <a href="/articles/<%- post['id'] %>/delete"><i class="fa fa-close"></i></a>
-              </div>
+                <% if (typeof currentUser !== "undefined") { %>
+                <div class="d-flex flex-row-reverse">               
+                    <a href="/articles/<%- post['id'] %>/delete"><i class="fa fa-close"></i></a>    
+              </div> 
+              <% } %>
             </div>
             <a style="text-decoration: none; color: rgb(0, 0, 0);" href="articles/<%- post['id'] %>/show">
               <img 
