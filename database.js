@@ -91,22 +91,6 @@ var db = new sqlite3.Database(DBSOURCE, (err) => {
         }
       }
     );
-    db.run(
-      `CREATE TABLE categorypost (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      idPost integer,
-      idCategory integer,
-      FOREIGN KEY (idPost) REFERENCES post(id),
-      FOREIGN KEY (idCategory) REFERENCES category(id)
-      )`,
-      (err) => {
-        if (err) {
-          console.log("Table categorypost is already created");
-        } else {
-          console.log("Table categorypost is created");
-        }
-      }
-    );
   }
 });
 
