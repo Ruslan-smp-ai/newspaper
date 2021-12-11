@@ -44,6 +44,7 @@
           <% posts.forEach(function(post) { %>
           <div class="col">
             <div class="card">
+              <% if (typeof currentUser !== "undefined") { %>
               <div class="card-header">
                 <% if (typeof currentUser !== "undefined") { %>
                 <div class="d-flex flex-row-reverse">               
@@ -51,6 +52,7 @@
               </div> 
               <% } %>
             </div>
+            <% } %>
             <a style="text-decoration: none; color: rgb(0, 0, 0);" href="articles/<%- post['id'] %>/show">
               <img 
                 src="usersImages/<%-  post["image"] %>"
