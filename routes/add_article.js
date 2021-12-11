@@ -29,10 +29,10 @@ router.post("/", urlencodedParser, upload.single('articleImage'), function (req,
     error = "No file received";
     res.render("add_article", { activePage: "add_article", error: error, title: 'Add article| Newspaper' });
     return;
-    };
+  };
 
-  var data = [req.body.title, req.body.description, req.body.text, req.file.filename];
-  var sql = "INSERT INTO post (title, description, text, image, date, userId) VALUES (?,?,?,?, DATETIME('now','localtime'),1)";
+  var data = [req.body.title, req.body.description, req.body.text, req.file.filename, res.locals.currentUser["id"], req.body.category];
+  var sql = "INSERT INTO post (title, description, text, image, date, userId, categoryId) VALUES (?,?,?,?, DATETIME('now','localtime'),?,?)";
   db.run(sql, data, function (err, result) {
     if (err) {
       res.status(400);
