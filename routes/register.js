@@ -21,8 +21,6 @@ router.get("/", function (req, res, next) {
 });
 
 router.post("/", urlencodedParser, upload.single('avatarImage'), function (req, res) {
-  
-
   if (!req.file) {
     console.log("Ошибка");
     error = "No file received";
