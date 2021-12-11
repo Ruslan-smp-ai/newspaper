@@ -46,8 +46,8 @@ router.post("/", urlencodedParser, function (req, res) {
         res.render("login", { activePage: "login", error: error , title: 'Login | Newspaper'});
         return;
       }
-      //req.session.userId = row["id"];
-      //req.session.loggedIn = true;
+      req.session.userId = row["id"];
+      req.session.loggedIn = true;
       res.redirect("/");
     });
   });

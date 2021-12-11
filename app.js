@@ -1,5 +1,6 @@
 var createError = require("http-errors");
 var express = require("express");
+const session =  require('express-session') ;
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
@@ -12,9 +13,27 @@ var loginRouter = require("./routes/login");
 var registerRouter = require("./routes/register");
 var addArticleRouter = require("./routes/add_article");
 var articleRouter = require("./routes/article");
-
+var logoutRouter = require("./routes/logout");
 
 var app = express();
+
+app.use(session({secret: 'obydul', saveUninitialized: false, resave: false}));
+
+function setCurrentUser(req, res, next) {
+  if (req.session.loggedIn) {
+    var sql = "SELECT * FROM user WHERE id = ?";
+    var params = [req.session.userId];
+    db.get(sql, params, (err, row) => {
+      if (row !== undefined) {
+        res.locals.currentUser = row;
+      }
+      return next();
+    });
+  } else {
+    return next();
+  }
+}
+app.use(setCurrentUser);
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -43,6 +62,7 @@ app.use("/login", loginRouter);
 app.use("/register", registerRouter);
 app.use("/add_article", addArticleRouter);
 app.use("/articles", articleRouter);
+app.use("/logout", logoutRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
