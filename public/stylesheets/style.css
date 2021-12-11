@@ -92,3 +92,10 @@ hr {
 	-webkit-line-clamp: 1;
 	-webkit-box-orient: vertical;
 }
+.fa-close {
+  color: rgb(218, 4, 4);
+  transition: 500ms;
+}
+.fa-close:hover {
+  color: rgb(129, 5, 5);
+}
