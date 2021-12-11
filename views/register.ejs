@@ -38,7 +38,11 @@
       </ul>
       <hr />
 
-      <form class="form-auth" method="post" action="/register">
+      <% if (error !== "") { %>
+        <div class="alert alert-danger" role="alert"><%- error %></div>
+      <% } %>
+
+      <form class="form-auth" method="post" action="/register" enctype="multipart/form-data">
         <div class="form-group pt-3">
             <input
               type="text"
@@ -77,6 +81,20 @@
             id="confirmPassword"
             placeholder="Confirm password"
           />
+        </div>
+        <div class="form-group pt-3">
+        <div class="pt-3"></div>
+
+        <label class="form-label" for="articleImage"
+          >Upload article image</label
+        >
+        <input
+          type="file"
+          class="form-control"
+          id="avatarImage"
+          name="avatarImage"
+        />
+        <div class="pt-3"></div>
         </div>
         <div class="registrationFormAlert" id="divCheckPasswordMatch"></div>
         <div class="form-group form-check pt-3">
