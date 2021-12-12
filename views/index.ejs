@@ -63,7 +63,8 @@
                 <h5 class="card-title"><%- post["title"] %></h5>
                 <p class="card-text">
                   <%- post["description"] %>
-                </p><span class="badge bg-danger"><%- post["name"] %></span>
+                </p>
+                <%- include("elements/badges-category.ejs", {post: post}) %>
               </a>
                 
                 <!-- Modal -->

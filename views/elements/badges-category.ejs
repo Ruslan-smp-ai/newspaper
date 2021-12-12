@@ -1,0 +1,11 @@
+<% if( post["name"] == "News") {%>
+    <span class="badge bg-primary"><%- post["name"] %></span>
+    <%} else if( post["name"] == "Politics") {%>
+    <span class="badge bg-secondary"><%- post["name"] %></span>
+    <%} else if( post["name"] == "Sport") {%>
+    <span class="badge bg-success"><%- post["name"] %></span>
+    <%} else if( post["name"] == "Culture") {%>
+    <span class="badge bg-info"><%- post["name"] %></span>
+    <%} else if( post["name"] == "Covid") {%>
+    <span class="badge bg-danger"><%- post["name"] %></span>
+    <%} -%>
