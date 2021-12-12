@@ -1,22 +1,28 @@
 var express = require('express');
 var router = express.Router();
 
+var dayjs = require('dayjs')
+var relativeTime = require('dayjs/plugin/relativeTime')
+dayjs.extend(relativeTime)
+var customParseFormat = require('dayjs/plugin/customParseFormat')
+dayjs.extend(customParseFormat)
+
 const db = require("../database.js");
-const sqlr = "SELECT post.id, post.title, post.text, post.description, post.image, category.name FROM post left JOIN category ON post.categoryId = category.id WHERE category.name = "
+const sqlr = "SELECT post.id, post.title, post.text, post.description, post.image, category.name, post.date FROM post left JOIN category ON post.categoryId = category.id WHERE category.name = "
 /* GET home page. */
 /*router.get('/', function(req, res, next) {
   res.render('index', { title: 'Newspaper' });
 });*/
 
 router.get("/", function (req, res) {
-  var sql = "SELECT post.id, post.title, post.text, post.description, post.image, category.name FROM post LEFT JOIN category ON post.categoryId = category.id";
+  var sql = "SELECT post.id, post.title, post.text, post.description, post.image, category.name, post.date FROM post LEFT JOIN category ON post.categoryId = category.id";
   db.all(sql, [], (err, rows) => {
     if (err) {
       res.status(400);
       res.send("database error:" + err.message);
       return;
     }
-    res.render("index", { title: 'Newspaper', activePage: "index", posts: rows });
+    res.render("index", { title: 'Newspaper', activePage: "index", posts: rows, dayjs: dayjs });
   });
 });
 
