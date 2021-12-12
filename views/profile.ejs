@@ -5,7 +5,11 @@
     <!-- <link rel="stylesheet" href="/stylesheets/style.css" /> -->
     <link rel="stylesheet" href="/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/stylesheets/style.css" />
-    <link rel="shortcut icon" href="/images/title-icon.png" type="image/x-icon">
+    <link
+      rel="shortcut icon"
+      href="/images/title-icon.png"
+      type="image/x-icon"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
   <body>
@@ -38,45 +42,54 @@
       </ul>
       <hr />
       <div class="row">
-        <div class="col-sm-3" style="margin: auto;   padding-left: 10%; padding-right: 10%;"><img class="rounded-circle"  src="avatarsImages/<%- currentUser.image %>" alt="Generic placeholder image" width="140" height="140"></div>
-        <div class="col-sm-6"><form method="post" action="/profile" enctype="multipart/form-data">
-        <div class="form-group pt-3">
-          <input
-            type="text"
-            name="name"
-            class="form-control form-control-underlined"
-            id="name"
-            value="<%- currentUser.name %>"
-            required
+        <div class="col-md-3 d-flex justify-content-center">
+          <img
+            class="rounded-circle m-4"
+            src="avatarsImages/<%- currentUser.image %>"
+            alt="Generic placeholder image"
+            width="150"
+            height="150"
           />
         </div>
-        <div class="form-group pt-3">
-          <input
-            type="email"
-            name="email"
-            class="form-control form-control-underlined"
-            id="email"
-            value="<%- currentUser.email %>"
-            required
-          />
+        <div class="col-md-6">
+          <form method="post" action="/profile" enctype="multipart/form-data">
+            <div class="form-group pt-3">
+              <input
+                type="text"
+                name="name"
+                class="form-control form-control-underlined"
+                id="name"
+                value="<%- currentUser.name %>"
+                required
+              />
+            </div>
+            <div class="form-group pt-3">
+              <input
+                type="email"
+                name="email"
+                class="form-control form-control-underlined"
+                id="email"
+                value="<%- currentUser.email %>"
+                required
+              />
+            </div>
+            <div class="form-group pt-3">
+              <input
+                name="password"
+                class="form-control form-control-underlined"
+                id="password"
+                type="password"
+                required
+              />
+            </div>
+            <div class="pt-3"></div>
+            <button type="submit" class="btn btn-dark">Submit</button>
+          </form>
         </div>
-        <div class="form-group pt-3">
-          <input
-            name="password"
-            class="form-control form-control-underlined"
-            id="password"
-            type="password"
-            required
-          />
-        </div>
-        <div class="pt-3"></div>
-        <button type="submit" class="btn btn-dark">Submit</button>
-      </form></div>
-      <div class="col-sm-3"></div>
+        <div class="col-md-3"></div>
       </div>
-      <div class="pb-4">
-      </div>
+      <div class="pb-4"></div>
       <%- include("elements/form-footer.ejs") %>
-    </div>   
+    </div>
   </body>
 </html>
