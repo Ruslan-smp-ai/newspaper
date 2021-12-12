@@ -100,3 +100,13 @@ hr {
 .fa-close:hover {
   color: rgb(129, 5, 5);
 }
+.rounded-circle {
+  object-fit: cover;
+  height: 50px;
+}
+.container-sm {
+  min-height: 100vh;
+}
+.container {
+  min-height: 100vh;
+}
