@@ -18,6 +18,9 @@ var profileRouter = require("./routes/profile");
 
 var app = express();
 
+var compression = require('compression');
+app.use(compression());
+
 app.use(session({secret: 'obydul', saveUninitialized: false, resave: false}));
 
 function setCurrentUser(req, res, next) {
