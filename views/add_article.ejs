@@ -58,6 +58,7 @@
             id="title"
             name="title"
             placeholder="Title"
+            required
           />
         </div>
         <div class="form-group pt-3">
@@ -67,6 +68,7 @@
             id="description"
             name="description"
             placeholder="Description"
+            required
           />
         </div>
         <div class="form-group pt-3">
@@ -77,10 +79,11 @@
             name="text"
             placeholder="Text"
             rows="5"
+            required
           ></textarea>
         </div>
         <div class="form-group pt-3">
-          <select class="form-select" aria-label="Choose category" name="category">
+          <select class="form-select" aria-label="Choose category" name="category" required>
             <option selected>Choose category</option>
             <option value="1">News</option>
             <option value="2">Politics</option>
@@ -98,6 +101,7 @@
           class="form-control"
           id="articleImage"
           name="articleImage"
+          required
         />
         <div class="pt-3"></div>
         <button type="submit" class="btn btn-dark">Submit</button>
