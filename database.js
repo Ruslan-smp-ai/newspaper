@@ -60,10 +60,11 @@ var db = new sqlite3.Database(DBSOURCE, (err) => {
     db.run(
       `CREATE TABLE comment (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    author text,
+    userId integer,
     comment text,
     idPost integer,
     FOREIGN KEY (idPost) REFERENCES post(id)
+    FOREIGN KEY (userId) REFERENCES user(id)
     )`,
       (err) => {
         if (err) {

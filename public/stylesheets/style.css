@@ -5,14 +5,15 @@ body {
   /*font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;*/
   /*font: 14px "PT Serif", serif, Helvetica, Arial, sans-serif;*/
   font-family: 'PT Serif', serif, bold;
-  background-image: url(../images/background.png);
-  background-repeat:repeat;
 }
-.container {
-  background-color: white;
-  box-shadow:  0px 20px 20px grey;
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px; /* Set the fixed height of the footer here */
+  line-height: 60px; /* Vertically center the text there */
+  background-color: #f5f5f5;
 }
-
 a {
   color: #00B7FF;
 }
