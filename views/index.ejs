@@ -11,7 +11,7 @@
   </head>
   <body>
     <script language="javascript" src="js/bootstrap.min.js"></script>
-    <div class="container" >
+    <div class="container-sm" >
       <%- include("elements/navbar.ejs") %>
       <div class="d-flex justify-content-center">
         <h1 class="upper_title" href="#">Newspaper</h1>
@@ -45,13 +45,6 @@
           <div class="col">
             <div class="card">
               <% if (typeof currentUser !== "undefined") { %>
-              <div class="card-header">
-                <% if (typeof currentUser !== "undefined") { %>
-                <div class="d-flex flex-row-reverse">               
-                    <a href="/articles/<%- post['id'] %>/delete"><i class="fa fa-close"></i></a>    
-              </div> 
-              <% } %>
-            </div>
             <% } %>
             <a style="text-decoration: none; color: rgb(0, 0, 0);" href="articles/<%- post['id'] %>/show">
               <img 
@@ -79,7 +72,6 @@
       <div class="pb-4">
       </div>
     </div>   
-      <div class="container"><%- include("elements/footer.ejs") %>
-      </div>
+      <%- include("elements/footer.ejs") %>
   </body>
 </html>

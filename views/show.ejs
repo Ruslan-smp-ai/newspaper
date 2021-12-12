@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <!-- <link rel="stylesheet" href="/stylesheets/style.css" /> -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/stylesheets/style.css" />
-    <link rel="shortcut icon" href="/images/title-icon.png" type="image/x-icon">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-  </head>
-  <body>
-    <script language="javascript" src="/js/bootstrap.min.js"></script>
-    <div class="container">
-      <%- include("elements/navbar.ejs") %>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <!-- <link rel="stylesheet" href="/stylesheets/style.css" /> -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <link rel="shortcut icon" href="/images/title-icon.png" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+
+<body>
+  <script language="javascript" src="/js/bootstrap.min.js"></script>
+  <div class="container">
+    <%- include("elements/navbar.ejs") %>
       <div class="d-flex justify-content-center">
         <h1 class="upper_title" href="#">Newspaper</h1>
       </div>
@@ -40,28 +44,52 @@
 
       <div class="pt-4">
         <div class="blog-post">
-            <img style="height: 400px; width: 100%; object-fit: cover;" src="/usersImages/<%- post["image"] %>" class="img-fluid" alt="Responsive image">
-            <div class ="pt-3"></div>
-            <h2 class="blog-post-title"><%- post["title"] %></h2>
-            <h5 class="blog-post-meta"><%- post["description"] %></h5>
-            <p class="blog-post-meta"><%- date %></p>
-            <%- article %>
-          </div><!-- /.blog-post -->
+          <img style="height: 400px; width: 100%; object-fit: cover; border-radius: 10px;"
+            src="/usersImages/<%- post['image'] %>" class="img-fluid" alt="Responsive image">
+          <div class="pt-3"></div>
+          <h2 class="blog-post-title">
+            <%- post["title"] %>
+          </h2>
+          <h5 class="blog-post-meta">
+            <%- post["description"] %>
+          </h5>
+          <p class="blog-post-meta">
+            <%- date %>
+          </p>
+          <%- article %>
+        </div><!-- /.blog-post -->
         <hr style="width: 100%; margin-left: -0.2em; margin-right: -1.5em">
         <div class="pt-4"></div>
-          <form class="d-flex">
-            <div class="pt-4"></div>
+        <form method="post">
+          <div class="form-group pt-3">
             <input
-              class="form-control me-2 form-control-underlined"
               type="text"
-              placeholder="Comment"
-              aria-label="Comment"
+              name="comment"
+              class="form-control form-control-underlined"
+              id="comment"
+              aria-describedby="comment"
+              placeholder="Add your comment"
             />
-            <button type="submit" class="btn btn-dark">Submit</button>
-      </div>   
+          </div>
+          <div class="pt-3"></div>
+          <button type="submit" class="btn btn-dark">Submit</button>
+        </form>
+        <% comments.forEach(function(comment) { %>
+          <div class="card w-100">
+            <div class="card-body">
+              <h5 class="card-title">
+                <%- comment["name"] %>
+              </h5>
+              <p class="card-text">
+                <%- comment["comment"] %>
+              </p>
+            </div>
+          </div>
+          <% }) %>
+      </div>
       <div class="pb-4">
       </div>
-      <%- include("elements/form-footer.ejs") %>
-    </div>   
-  </body>
+  </div>
+</body>
+
 </html>
