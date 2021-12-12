@@ -34,7 +34,7 @@ router.get("/news", function (req, res) {
       res.send("database error:" + err.message);
       return;
     }
-    res.render("index", { title: 'Newspaper', activePage: "index", posts: rows });
+    res.render("index", { title: 'Newspaper', activePage: "index", posts: rows, dayjs: dayjs });
   });
 });
 
@@ -46,7 +46,7 @@ router.get("/politics", function (req, res) {
       res.send("database error:" + err.message);
       return;
     }
-    res.render("index", { title: 'Newspaper', activePage: "index", posts: rows });
+    res.render("index", { title: 'Newspaper', activePage: "index", posts: rows, dayjs: dayjs });
   });
 });
 
@@ -58,7 +58,7 @@ router.get("/sport", function (req, res) {
       res.send("database error:" + err.message);
       return;
     }
-    res.render("index", { title: 'Newspaper', activePage: "index", posts: rows });
+    res.render("index", { title: 'Newspaper', activePage: "index", posts: rows, dayjs: dayjs });
   });
 });
 
@@ -70,7 +70,7 @@ router.get("/culture", function (req, res) {
       res.send("database error:" + err.message);
       return;
     }
-    res.render("index", { title: 'Newspaper', activePage: "index", posts: rows });
+    res.render("index", { title: 'Newspaper', activePage: "index", posts: rows, dayjs: dayjs });
   });
 });
 
@@ -82,7 +82,7 @@ router.get("/covid", function (req, res) {
       res.send("database error:" + err.message);
       return;
     }
-    res.render("index", { title: 'Newspaper', activePage: "index", posts: rows });
+    res.render("index", { title: 'Newspaper', activePage: "index", posts: rows, dayjs: dayjs });
   });
 });
 
