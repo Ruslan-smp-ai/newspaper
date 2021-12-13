@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="/stylesheets/style.css" />
   <link rel="shortcut icon" href="/images/title-icon.png" type="image/x-icon">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -55,8 +56,10 @@
           </h5>
           <p class="blog-post-meta">
             <%- date %>
-            <i class="fa fa-trash" aria-hidden="true"></i>
-            <i class="fa fa-pencil-square" aria-hidden="true"></i>
+            <% if (typeof currentUser !== "undefined") { %>
+            <a href="/articles/<%- post["id"] %>/delete"><i class="fa fa-trash" aria-hidden="true"></i></a>
+            <a href="/articles/<%- post["id"] %>/edit"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
+            <% } %>
           </p>
           <p class="blog-post-meta"><%- article %></p>
         </div><!-- /.blog-post -->

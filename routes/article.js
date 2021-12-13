@@ -76,7 +76,7 @@ router.post("/:id/show", urlencodedParser, function (req, res) {
 router.post("/:id/edit", urlencodedParser, upload.single('articleImage'), function (req, res) {
   if (!req.file) {
     error = "No file received";
-    res.render("add_article", { activePage: "add_article", error: error, title: 'Edit article | Newspaper' });
+    res.render("edit_article", { activePage: "edit_article", error: error, title: 'Edit article | Newspaper' });
     return;
   };
 
@@ -101,7 +101,7 @@ router.get("/:id/edit", function (req, res) {
       res.send("database error:" + err.message);
       return;
     }
-    res.render("add_article", {
+    res.render("edit_article", {
       title: "Edit article | Newspaper",
       article: row,
       activePage: "article",

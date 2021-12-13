@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <!-- <link rel="stylesheet" href="/stylesheets/style.css" /> -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link
+      rel="shortcut icon"
+      href="images/title-icon.png"
+      type="image/x-icon"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <div class="container">
+      <%- include("elements/navbar.ejs") %>
+      <div class="d-flex justify-content-center">
+        <h1 class="upper_title" href="#">Newspaper</h1>
+      </div>
+      <hr />
+      <ul class="nav justify-content-center">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/news">News</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/politics">Politics</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/sport">Sport</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/culture">Culture</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/covid">Covid-19</a>
+        </li>
+      </ul>
+      <hr />
+
+      <% if (error !== "") { %>
+      <div class="alert alert-danger" role="alert"><%- error %></div>
+      <% } %>
+
+      <form
+        class="form-article"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        <div class="form-group pt-3">
+          <input
+            type="text"
+            class="form-control form-control-underlined"
+            id="title"
+            name="title"
+            value="<%- article["title"] %>"
+            placeholder="Title"
+            required
+          />
+        </div>
+        <div class="form-group pt-3">
+          <input
+            type="text"
+            class="form-control form-control-underlined"
+            id="description"
+            name="description"
+            value="<%- article["description"] %>"
+            placeholder="Description"
+            required
+          />
+        </div>
+        <div class="form-group pt-3">
+          <textarea
+            type="text"
+            class="form-control form-control-underlined"
+            id="text"
+            name="text"
+            placeholder="Text"
+            rows="5"
+            required
+          ><%- article["text"] %></textarea>
+        </div>
+        <div class="form-group pt-3">
+          <select class="form-select" aria-label="Choose category" name="category" required>
+            <option selected>Choose category</option>
+            <option value="1">News</option>
+            <option value="2">Politics</option>
+            <option value="3">Sport</option>
+            <option value="4">Culture</option>
+            <option value="5">Covid-19</option>
+          </select>
+        </div>
+        <div class="pt-3"></div>
+        <label class="form-label" for="articleImage"
+          >Upload article image</label
+        >
+        <input
+          type="file"
+          class="form-control"
+          id="articleImage"
+          name="articleImage"
+          required
+        />
+        <div class="pt-3"></div>
+        <button type="submit" class="btn btn-dark">Submit</button>
+      </form>
+    </div>
+    <%- include("elements/form-footer.ejs") %>
+    <!--  JavaScript  -->
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/jquery/jquery.min.js"></script>
+  </body>
+</html>
