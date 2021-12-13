@@ -31,7 +31,7 @@ router.get("/", function (req, res) {
 });
 
 router.post("/search", urlencodedParser, function (req, res) {
-  var sql = "SELECT post.id, post.title, post.text, post.description, post.image, category.name, post.date FROM post LEFT JOIN category ON post.categoryId = category.id WHERE post.title LIKE '" + req.body.search + "%'";
+  var sql = "SELECT post.id, post.title, post.text, post.description, post.image, category.name, post.date FROM post LEFT JOIN category ON post.categoryId = category.id WHERE post.title LIKE '%" + req.body.search + "%'";
   db.all(sql, [], (err, rows) => {
     if (err) {
       res.status(400);
