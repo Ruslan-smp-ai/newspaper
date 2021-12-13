@@ -37,10 +37,11 @@
         <% } %>
       </ul>
 
-      <form class="d-flex">
+      <form class="d-flex" method="post" action="/search">
         <input
           class="form-control me-2 form-control-underlined"
-          type="search"
+          type="text"
+          name="search"
           placeholder="Search"
           aria-label="Search"
         />

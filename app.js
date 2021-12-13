@@ -68,6 +68,7 @@ app.use("/add_article", addArticleRouter);
 app.use("/articles", articleRouter);
 app.use("/profile",profileRouter);
 app.use("/logout", logoutRouter);
+app.use("/search", indexRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

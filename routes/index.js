@@ -7,6 +7,10 @@ dayjs.extend(relativeTime)
 var customParseFormat = require('dayjs/plugin/customParseFormat')
 dayjs.extend(customParseFormat)
 
+router.use(express.json());
+router.use(express.urlencoded({extended: false})); 
+const urlencodedParser = express.urlencoded({extended: false});
+
 const db = require("../database.js");
 const sqlr = "SELECT post.id, post.title, post.text, post.description, post.image, category.name, post.date FROM post left JOIN category ON post.categoryId = category.id WHERE category.name = "
 /* GET home page. */
@@ -16,6 +20,18 @@ const sqlr = "SELECT post.id, post.title, post.text, post.description, post.imag
 
 router.get("/", function (req, res) {
   var sql = "SELECT post.id, post.title, post.text, post.description, post.image, category.name, post.date FROM post LEFT JOIN category ON post.categoryId = category.id";
+  db.all(sql, [], (err, rows) => {
+    if (err) {
+      res.status(400);
+      res.send("database error:" + err.message);
+      return;
+    }
+    res.render("index", { title: 'Newspaper', activePage: "index", posts: rows, dayjs: dayjs });
+  });
+});
+
+router.post("/search", urlencodedParser, function (req, res) {
+  var sql = "SELECT post.id, post.title, post.text, post.description, post.image, category.name, post.date FROM post LEFT JOIN category ON post.categoryId = category.id WHERE post.title LIKE '" + req.body.search + "%'";
   db.all(sql, [], (err, rows) => {
     if (err) {
       res.status(400);
