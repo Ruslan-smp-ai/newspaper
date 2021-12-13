@@ -38,7 +38,7 @@ router.post("/search", urlencodedParser, function (req, res) {
       res.send("database error:" + err.message);
       return;
     }
-    res.render("index", { title: 'Newspaper', activePage: "index", posts: rows, dayjs: dayjs });
+    res.render("index", { title: 'Newspaper', activePage: "index", posts: rows, dayjs: dayjs, search: req.body.search });
   });
 });
 
