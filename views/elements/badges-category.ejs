@@ -1,11 +1,11 @@
 <% if( post["name"] == "News") {%>
-    <span class="badge bg-primary"><%- post["name"] %></span>
+    <a class="badge bg-primary" href="/news"><%- post["name"] %></a>
     <%} else if( post["name"] == "Politics") {%>
-    <span class="badge bg-secondary"><%- post["name"] %></span>
+    <a class="badge bg-secondary" href="/politics"><%- post["name"] %></a>
     <%} else if( post["name"] == "Sport") {%>
-    <span class="badge bg-success"><%- post["name"] %></span>
+    <a class="badge bg-success" href="/sport"><%- post["name"] %></a>
     <%} else if( post["name"] == "Culture") {%>
-    <span class="badge bg-info"><%- post["name"] %></span>
+    <a class="badge bg-info" href="/culture"><%- post["name"] %></a>
     <%} else if( post["name"] == "Covid") {%>
-    <span class="badge bg-danger"><%- post["name"] %></span>
+    <a class="badge bg-danger" href="/covid"><%- post["name"] %></a>
     <%} -%>

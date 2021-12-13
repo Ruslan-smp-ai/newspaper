@@ -110,3 +110,7 @@ hr {
 .container {
   min-height: 100vh;
 }
+
+.badge {
+  text-decoration: none;
+}
