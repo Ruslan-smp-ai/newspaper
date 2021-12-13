@@ -42,7 +42,13 @@
       <% if (typeof search !== 'undefined') { %>
        <h4>Search:  <i><%- search %> </i> </h4>
       <% } %>
-
+      <div class="pt-2"></div>
+      <marquee behavior="scroll" direction="left">  
+      <% posts.forEach(function(post) { %>
+       <%- post["title"] %>        
+      <% }) %>
+    </marquee>
+      <hr />  
       <div class="pt-4">
         <div class="row row-cols-1 row-cols-md-3 g-4">
           <% posts.forEach(function(post) { %>
