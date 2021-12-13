@@ -88,7 +88,7 @@ router.post("/:id/edit", urlencodedParser, upload.single('articleImage'), functi
       res.send("database error:" + err.message);
       return;
     }
-    res.redirect("../");
+    res.redirect("../../");
   });
 });
 
