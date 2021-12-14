@@ -6,6 +6,18 @@ var showdown = require('showdown');
 const { text } = require("express");
 converter = new showdown.Converter();
 
+const multer  = require('multer')
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'public/usersImages/')
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.fieldname + '-' + Date.now())
+  }
+})
+
+const upload = multer({ storage: storage })
+
 router.use(express.json());
 router.use(express.urlencoded({extended: false})); 
 const urlencodedParser = express.urlencoded({extended: false});
@@ -61,6 +73,42 @@ router.post("/:id/show", urlencodedParser, function (req, res) {
   });
 });
 
+router.post("/:id/edit", urlencodedParser, upload.single('articleImage'), function (req, res) {
+  if (!req.file) {
+    error = "No file received";
+    res.render("edit_article", { activePage: "edit_article", error: error, title: 'Edit article | Newspaper' });
+    return;
+  };
+
+  var data = [req.body.title, req.body.description, req.body.text, req.file.filename, req.body.category, req.params.id];
+  var sql = "UPDATE post SET title = ?, description = ?, text = ?, image = ?, categoryId = ? WHERE id = ?";
+  db.run(sql, data, function (err, result) {
+    if (err) {
+      res.status(400);
+      res.send("database error:" + err.message);
+      return;
+    }
+    res.redirect("../../");
+  });
+});
+
+router.get("/:id/edit", function (req, res) {
+  var sql = "SELECT * FROM post WHERE id = ?";
+  var params = [req.params.id];
+  db.get(sql, params, (err, row) => {
+    if (err) {
+      res.status(400);
+      res.send("database error:" + err.message);
+      return;
+    }
+    res.render("edit_article", {
+      title: "Edit article | Newspaper",
+      article: row,
+      activePage: "article",
+      error: "",
+    });
+  });
+});
 
 router.get("/:id/delete", function (req, res) {
   var sql = "DELETE FROM post WHERE id = ?";

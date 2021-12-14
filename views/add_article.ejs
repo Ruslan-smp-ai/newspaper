@@ -3,8 +3,8 @@
   <head>
     <title><%= title %></title>
     <!-- <link rel="stylesheet" href="/stylesheets/style.css" /> -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" href="stylesheets/style.css" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
     <link
       rel="shortcut icon"
       href="images/title-icon.png"
@@ -48,7 +48,6 @@
       <form
         class="form-article"
         method="post"
-        action="/add_article"
         enctype="multipart/form-data"
       >
         <div class="form-group pt-3">
@@ -109,7 +108,7 @@
     </div>
     <%- include("elements/form-footer.ejs") %>
     <!--  JavaScript  -->
-    <script language="javascript" src="js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
     <script src="/jquery/jquery.min.js"></script>
   </body>
 </html>

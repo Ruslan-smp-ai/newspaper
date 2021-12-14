@@ -23,8 +23,6 @@ router.get("/", function (req, res, next) {
 });
 
 router.post("/", urlencodedParser, upload.single('articleImage'), function (req, res) {
-  
-
   if (!req.file) {
     error = "No file received";
     res.render("add_article", { activePage: "add_article", error: error, title: 'Add article| Newspaper' });

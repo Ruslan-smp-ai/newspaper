@@ -21,6 +21,11 @@ router.get("/", function (req, res, next) {
 });
 
 router.post("/", urlencodedParser, upload.single('avatarImage'), function (req, res) {
+  if (!req.body.accept) {
+    error = "Accept the terms of the agreement!";
+    res.render("register", { activePage: "register", error: error, title: 'Register | Newspaper' });
+    return;
+  }
   if (!req.file) {
     console.log("Ошибка");
     error = "No file received";
@@ -34,7 +39,13 @@ router.post("/", urlencodedParser, upload.single('avatarImage'), function (req, 
     db.run(sql, data, function (err, result) {
       if (err) {
         res.status(400);
-        res.send("database error:" + err.message);
+        //res.send("database error:" + err.message);
+        if (err.message === "SQLITE_CONSTRAINT: UNIQUE constraint failed: user.email") {
+          var error = "User with the same email exists.";
+        } else {
+          var error = err.message;
+        }
+        res.render("register", { activePage: "register", error: error, title: 'Register | Newspaper' });
         return;
       }
       res.redirect("/");
