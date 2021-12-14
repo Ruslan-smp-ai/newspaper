@@ -21,6 +21,7 @@ var app = express();
 var compression = require('compression');
 app.use(compression());
 
+app.use(cookieParser())
 app.use(session({secret: 'obydul', saveUninitialized: false, resave: false}));
 
 function setCurrentUser(req, res, next) {
@@ -56,7 +57,6 @@ app.use(
   express.static(path.join(__dirname, "node_modules/jquery/dist"))
 );
 app.use(logger("dev"));
-app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/jquery", express.static(__dirname + "/node_modules/jquery/dist/"));
 
@@ -71,8 +71,12 @@ app.use("/logout", logoutRouter);
 app.use("/search", indexRouter);
 
 // catch 404 and forward to error handler
-app.use(function (req, res, next) {
-  next(createError(404));
+//app.use(function (req, res, next) {
+//  next(createError(404));
+//});
+
+app.use(function(req, res, next) {
+  res.status(404).render("404");
 });
 
 // error handler

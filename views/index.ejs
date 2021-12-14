@@ -47,6 +47,7 @@
     </marquee>
       <hr />  
       <% if (typeof search !== 'undefined') { %>
+        <div class="pt-2"></div>
         <h4>Search:  <i><%- search %> </i> </h4>
        <% } %>
       <div class="pt-4">
@@ -79,6 +80,7 @@
           <% }) %>
         </div>
         <% if (posts.length === 0) { %>
+          <div class="pt-2"></div>
           <h4>No articles</h4>
          <% } %>
       </div>   
