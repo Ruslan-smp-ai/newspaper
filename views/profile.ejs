@@ -52,7 +52,7 @@
           />
         </div>
         <div class="col-md-6">
-          <form method="post" action="/profile">
+          <form method="post" action="/profile" enctype="multipart/form-data">
             <div class="form-group pt-3">
               <input
                 type="text"
@@ -82,6 +82,16 @@
                 required
               />
             </div>
+            <div class="form-group pt-3"></div>
+            <label class="form-label" for="avatarImage"
+              >Upload avatar image</label
+            >
+            <input
+              type="file"
+              class="form-control"
+              id="avatarImage"
+              name="avatarImage"
+            />
             <div class="pt-3"></div>
             <button type="submit" class="btn btn-dark">Submit</button>
           </form>

@@ -31,14 +31,21 @@ router.get("/", checkAuth, function (req, res) {
   res.render("profile", { activePage: "profile", title: "Profile | Newspaper" });
 });
 
-router.post("/", urlencodedParser, function (req, res) {
-  console.log(req.body);
+router.post("/", urlencodedParser, upload.single('avatarImage'), function (req, res) {
+  if (!req.file) {
+    console.log("Ошибка");
+    error = "No file received";
+    res.render("profile", { activePage: "profile", error: error, title: 'Profile | Newspaper' });
+    return;
+    };
+
     bcrypt.hash(req.body.password, 10, function (err, hash) {
-      var data = [req.body.name, req.body.email, hash, req.session.userId];
+      var data = [req.body.name, req.body.email, hash, req.file.filename, req.session.userId];
       var sql = `UPDATE user SET
       name = COALESCE(?,name),
       email = COALESCE(?,email),
-      password = COALESCE(?,password)
+      password = COALESCE(?,password),
+      image = COALESCE(?,image)
       WHERE id = ?`;
       db.run(sql, data, function (err, result) {
         if (err) {
