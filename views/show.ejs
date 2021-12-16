@@ -93,12 +93,13 @@
             <div class="comment-widgets">
                 <!-- Comment Row -->
                 <% comments.forEach(function(comment) { %>
-                <div class="d-flex flex-row comment-row m-t-0">
-                    <div class="p-2"><img src="/avatarsImages/<%- comment['image'] %>" alt="user" width="50" class="rounded-circle"></div>
-                    <div class="comment-text w-100">
-                        <h6 class="font-medium"><%- comment["name"] %></h6> <span class="m-b-15 d-block"><%- comment["comment"] %></span>
+                <div class="d-flex flex-row comment-row mt-1 p-1">
+                    <div class="align-top align-bottom"><img src="/avatarsImages/<%- comment['image'] %>" alt="user" width="50" class="rounded-circle"></div>
+                    <div class="comment-text w-100 p-2">
+                        <h6 class="font-medium user-link"><%- comment["name"] %></h6> <span class="m-b-15 d-block"><%- comment["comment"] %></span>
                     </div>
                 </div> <!-- Comment Row -->
+                <hr/>
                 <% }) %>
             </div> <!-- Card -->
             <div class="pb-4">

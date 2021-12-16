@@ -114,3 +114,12 @@ hr {
 .badge {
   text-decoration: none;
 }
+
+.user-link {
+  color:rgb(90, 90, 90)
+}
+
+.user-link:hover {
+  color: rgb(51, 51, 51);
+  text-decoration: underline;
+}
